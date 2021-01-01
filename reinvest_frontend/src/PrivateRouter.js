@@ -8,7 +8,7 @@ import {loadingPage} from './loading';
 export const PrivateRoute = ({ component: Component, ...rest }) => {
 
   const handleAuthVerification = async () => {
-    let cookieTester = Cookie.get('auth');
+    let cookieTester = Cookie.get('auth'); //document.cookie.match(new RegExp('(^| )' + 'auth' + '=([^;]+)'))[2];
     if(cookieTester == null) return false;
     axios.post('https://reinvest-life.herokuapp.com/api/user/checkLoggedIn',{auth: cookieTester},{withCredentials:true}).then(res =>{
       if(res.status === 200){
