@@ -9,11 +9,11 @@ import Cookies from 'js-cookie';
      
      const handleClick = (e) => {
         axios
-          .post("http://localhost:4000/api/user/signout",{auth: Cookies.get('auth')},{withCredentials:true})
+          .post("https://reinvest-life.herokuapp.com/api/user/signout",{auth: Cookies.get('auth')},{withCredentials:true})
           .then((res) => {
             console.log(res);
             console.log(res.data);
-            if (res.status === 200) window.location = "http://localhost:3000/";
+            if (res.status === 200) window.location = "/";
             else console.log("Sign Out Failed");
           })
           .catch((err) => {
@@ -37,7 +37,7 @@ import Cookies from 'js-cookie';
             </Nav.Link> 
         
             <Nav.Link style={{background:"none"}} eventKey={2} href="/login" style={{color: "#fff",fontWeight:"bold",display:showLogin}}>
-                 Login In
+                 Login
             </Nav.Link>
 
             <Nav.Link  onClick={handleClick}  eventKey={2}  style={{color: "#fff",fontWeight:"bold",display: showPropertiesAndSignOut}}>

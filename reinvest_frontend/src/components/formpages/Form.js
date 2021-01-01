@@ -22,7 +22,7 @@ const PropertyForm = (props) => {
 
   useEffect(() =>{
     if(Cookies.get('property_id')!== undefined){
-      axios.post(`http://localhost:4000/properties/${Cookies.get('property_id')}`,{auth: Cookies.get('auth')}).then(property =>{
+      axios.post(`https://reinvest-life.herokuapp.com/properties/${Cookies.get('property_id')}`,{auth: Cookies.get('auth')}).then(property =>{
         //console.log(property.data);
         setPropInfo(property.data);
         setUpdateForm(true); 
@@ -523,13 +523,13 @@ const PropertyForm = (props) => {
     
     
 
-    axios.post('http://localhost:4000/properties',
+    axios.post('https://reinvest-life.herokuapp.com/properties',
     form,{withCredentials:true}).then(res =>{
       console.log(res.data);
       console.log(res.data._id);
       localStorage.setItem('propertyInfoId', res.data._id);
       Cookies.set('property_id',res.data._id);
-      window.location = "http://localhost:3000/finalanalytics";
+      window.location = "/finalanalytics";
     }).catch(err =>{
       console.log(JSON.stringify(err));
     })
@@ -539,7 +539,7 @@ const PropertyForm = (props) => {
     e.preventDefault();
 
     if(isUpdateForm){
-      axios.put(`http://localhost:4000/properties/${Cookies.get('property_id')}`,{auth : Cookies.get('auth'),...propInfo}).then(res =>{
+      axios.put(`https://reinvest-life.herokuapp.com/properties/${Cookies.get('property_id')}`,{auth : Cookies.get('auth'),...propInfo}).then(res =>{
       console.log(res);
       Cookies.remove('property_id');
       window.location = Cookies.get('redirect_link');

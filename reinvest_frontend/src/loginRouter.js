@@ -12,7 +12,7 @@ export const LoginRoute = ({ component: Component, ...rest }) => {
   const handleAuthVerification = async () => {
     let cookieTester = Cookie.get('auth');
     if(cookieTester == null) return false;
-    axios.post('http://localhost:4000/api/user/checkLoggedIn',{auth: cookieTester},{withCredentials:true}).then(res =>{
+    axios.post('https://reinvest-life.herokuapp.com/api/user/checkLoggedIn',{auth: cookieTester},{withCredentials:true}).then(res =>{
       if(res.status === 200){
         setLog(true);
       }else{

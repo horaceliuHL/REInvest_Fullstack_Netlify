@@ -23,14 +23,14 @@ function PropertyList(props) {
 
   useEffect(()=>{
     if(keyword.length === 0){
-      axios.post('http://localhost:4000/properties/all',{auth:Cookies.get('auth')}).then((res) =>{
+      axios.post('https://reinvest-life.herokuapp.com/properties/all',{auth:Cookies.get('auth')}).then((res) =>{
           setYourProperties(res.data);
           console.log(res.data);
           setIsLoading(false);
       }).catch((err) => console.log('err when length is 0'))
     }
     else{
-      axios.post('http://localhost:4000/properties/query',{query: keyword,auth:Cookies.get('auth')}).then(res =>{
+      axios.post('https://reinvest-life.herokuapp.com/properties/query',{query: keyword,auth:Cookies.get('auth')}).then(res =>{
         setYourProperties(res.data);
         console.log(res.data);
         setIsLoading(false);
@@ -39,7 +39,7 @@ function PropertyList(props) {
   },[keyword]);
 
   const handleDelete=(property_id) =>{
-    axios.delete(`http://localhost:4000/properties/${property_id}`,{data:{auth:Cookies.get('auth')}}).then(res =>{
+    axios.delete(`https://reinvest-life.herokuapp.com/properties/${property_id}`,{data:{auth:Cookies.get('auth')}}).then(res =>{
       console.log(res);
       setYourProperties(yourProperties.filter(property => property._id !== property_id));
     }).catch(err=>{
@@ -52,7 +52,7 @@ function PropertyList(props) {
     Cookies.set('property_id',property_id);
     Cookies.set('redirect_link','/signedin');
     setTimeout(()=>{
-      window.location = 'http://localhost:3000/propertyinfo'
+      window.location = '/propertyinfo'
     },1000)
     
   }
@@ -102,7 +102,7 @@ function PropertyList(props) {
                         <button className="property_button" onClick ={()=>{
                           localStorage.setItem('propertyInfoId',property._id);
                           console.log(localStorage.getItem('propertyInfoId'));
-                          window.location = "http://localhost:3000/finalanalytics";
+                          window.location = "/finalanalytics";
                         }}>View</button>
                         <button className="property_button" onClick = {(e) =>{
                           e.preventDefault();
@@ -137,7 +137,7 @@ function PropertyList(props) {
                     <button className="property_button" onClick ={()=>{
                       localStorage.setItem('propertyInfoId',property._id);
                       console.log(localStorage.getItem('propertyInfoId'));
-                      window.location = "http://localhost:3000/finalanalytics";
+                      window.location = "/finalanalytics";
                     }}>View</button>
                     <button className="property_button" onClick = {(e) =>{
                       e.preventDefault();

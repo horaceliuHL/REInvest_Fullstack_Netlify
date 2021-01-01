@@ -27,11 +27,11 @@ const ControlledInputslogin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post('http://localhost:4000/api/user/signin',
+    axios.post('https://reinvest-life.herokuapp.com/api/user/signin',
     {email,password},{withCredentials:true}).then(res =>{
       console.log(res);
       if (res.status === 200){
-          window.location = "http://localhost:3000/signedin"
+          window.location = "/signedin"
       } else {
         console.log("Not Logged In");
       }

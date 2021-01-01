@@ -298,7 +298,7 @@ const ReturnToPropertiesButton = () => {
     <div class="center fixed-bottom">
       <Row sm>
        <Col sm>
-        <Button onClick={()=>{window.location = "http://localhost:3000/signedIn"}} variant="dark">Back to Properties</Button>
+        <Button onClick={()=>{window.location = "/signedIn"}} variant="dark">Back to Properties</Button>
         </Col>
         <Col></Col>
         <Col></Col>
@@ -321,7 +321,7 @@ function FinalAnalytics(props) {
   const getJSONStuff = () => {
     let propertyInfoId = localStorage.getItem('propertyInfoId');
     console.log(propertyInfoId);
-    axios.post('http://localhost:4000/properties/' + propertyInfoId,{auth: Cookies.get('auth')},
+    axios.post('https://reinvest-life.herokuapp.com/properties/' + propertyInfoId,{auth: Cookies.get('auth')},
     {withCredentials:true}).then(res => {
       setData(res.data);
     }).catch(err => {

@@ -41,11 +41,11 @@ const ControlledInputs = () => {
     console.log(person);
     e.preventDefault();
     axios
-      .post("http://localhost:4000/api/user/signup", { ...person })
+      .post("https://reinvest-life.herokuapp.com/api/user/signup", { ...person })
       .then((res) => {
         console.log(res);
         console.log(res.data);
-        window.location = "http://localhost:3000/login";
+        window.location = "/login";
       })
       .catch((err) => {
         console.log(err);
