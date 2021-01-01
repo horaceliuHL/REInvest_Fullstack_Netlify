@@ -324,6 +324,7 @@ function FinalAnalytics(props) {
     axios.post('https://reinvest-life.herokuapp.com/properties/' + propertyInfoId,{auth: Cookies.get('auth')},
     {withCredentials:true}).then(res => {
       setData(res.data);
+      setIsLoaded(true);
     }).catch(err => {
       console.log(err);
     });
@@ -331,14 +332,14 @@ function FinalAnalytics(props) {
 
   useEffect(async()=>{
     let hello = await getJSONStuff();
-    console.log(data);
-    setTimeout(()=>{
-      setIsLoaded(true);
-    },2000);
+    // console.log(data);
+    // setTimeout(()=>{
+    //   setIsLoaded(true);
+    // },2000);
     
   },data)
 
-  console.log(data);
+  //console.log(data);
   
 
   if(!isLoaded){

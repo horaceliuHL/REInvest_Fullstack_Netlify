@@ -9,6 +9,7 @@ import {
 import { Link} from "react-router-dom";
 import Navb from "./Navbar.js";
 import axios from "axios";
+import Cookies from 'js-cookie';
 
 const ControlledInputslogin = () => {
   const [email, setEmail] = useState("");
@@ -31,7 +32,8 @@ const ControlledInputslogin = () => {
     {email,password},{withCredentials:true}).then(res =>{
       console.log(res);
       if (res.status === 200){
-          window.location = "/signedin"
+        Cookies.set('auth', res.data.auth);
+        window.location = "/signedin"
       } else {
         console.log("Not Logged In");
       }

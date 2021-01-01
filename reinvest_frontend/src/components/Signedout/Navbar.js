@@ -13,7 +13,10 @@ import Cookies from 'js-cookie';
           .then((res) => {
             console.log(res);
             console.log(res.data);
-            if (res.status === 200) window.location = "/";
+            if (res.status === 200){
+              Cookies.remove('auth');
+              window.location = "/";
+            } 
             else console.log("Sign Out Failed");
           })
           .catch((err) => {
