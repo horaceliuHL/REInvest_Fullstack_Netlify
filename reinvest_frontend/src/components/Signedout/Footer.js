@@ -17,7 +17,7 @@ function Footer() {
             <i className='fab fa-typo3 labelFoot' />
         </Col>
         <Col sm={4} className="footer">
-            <label className="labelFoot"t>REInvest @ 2020</label>
+            <label className="labelFoot">REInvest @ 2020</label>
         </Col>
         <Col sm={4} className="footer">
             <i class='fab fa-facebook-f labelFoot' />
