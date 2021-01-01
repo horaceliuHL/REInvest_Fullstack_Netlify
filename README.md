@@ -75,11 +75,6 @@ Linkedin:
 * Nikhil: nbodduluri
 
 
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
 ## Acknowledgments
 
 Problems we Faced: handling https request while using authorization, using multer and blobs to process and send in receive images to server
@@ -101,11 +96,3 @@ Things we learned: MERN, image processing, cookies, autho, backend, encrypt and 
     <img src="https://user-images.githubusercontent.com/64310147/103423764-67862200-4b76-11eb-84cd-81a8823c678f.png" alt="Forest" style="width:100%">
   </div>
  </div>
-.row {
-  display: flex;
-}
-
-.column {
-  flex: 50%;
-  padding: 5px;
-}
