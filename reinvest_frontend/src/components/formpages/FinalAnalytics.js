@@ -305,6 +305,7 @@ const ReturnToPropertiesButton = () => {
         <Col sm>
         <Button variant="dark" onClick ={(e) =>{
           e.preventDefault();
+          Cookies.set('property_id', localStorage.getItem('propertyInfoId'));
           window.location = '/propertyinfo';
         }}>Update</Button>
         </Col>

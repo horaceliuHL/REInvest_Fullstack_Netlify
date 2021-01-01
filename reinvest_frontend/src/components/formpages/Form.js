@@ -21,7 +21,7 @@ const PropertyForm = (props) => {
 
 
   useEffect(() =>{
-    if(Cookies.get('property_id')!== undefined){
+    if(Cookies.get('property_id') !== undefined){
       axios.post(`https://reinvest-life.herokuapp.com/properties/${Cookies.get('property_id')}`,{auth: Cookies.get('auth')}).then(property =>{
         //console.log(property.data);
         setPropInfo(property.data);
