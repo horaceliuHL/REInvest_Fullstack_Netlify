@@ -92,7 +92,7 @@ const ControlledInputs = () => {
               />
             </Form.Group>
             <Form.Group controlId="formPassword">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>Password (Must be 6 characters or longer)</Form.Label>
               <Form.Control
                 name="password"
                 type="password"
